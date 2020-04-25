@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>PureMVC学习 - Jay~</title>
+  <meta name="description" content="MVC 是一个非常常见的设计模式，被广泛运用于各种和用户交互的软件中，像 java Swing 类库和 SWT、J2EE 中的 JSP、wxWidgets、QT 和 Gnome 等。可以很不夸张的说，几乎所有和 UI 有关的类库，不论什么语言，什么平台都或多或少有 MVC 的影子。但是经过这么多年的发展，MVC 这个设计模式已经由最初 smalltalk 中的样子发生了很多变化，除了数目让人眼花缭乱外，很多 MVC 模型之间已经有了很大差异，不同的人说起 MVC 时，除了基本原理外，掺杂了很多平台或者语言相关的东西，经常会引起很多误解。PureMVC 是一个跨平台跨语言的 MVC 通用框架，这个框架基于 MVC 模式设计，清晰简单，了解这个框架会有助于重新认识 MVC 设计模式本身，或者能够提供一个基础让大多数人能够更清晰的交流基于 MVC 的设计方案。
+
+（查看图 1 的 清晰版本）"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Jay~",
+    
+    "url": "http:\/\/www.huangguowei.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/www.huangguowei.com\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/www.huangguowei.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/www.huangguowei.com\/post\/tech\/puremvc\/",
+          "name": "Pure m v c学习"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "PureMVC学习",
+  "description" : "MVC 是一个非常常见的设计模式，被广泛运用于各种和用户交互的软件中，像 java Swing 类库和 SWT、J2EE 中的 JSP、wxWidgets、QT 和 Gnome 等。可以很不夸张的说，几乎所有和 UI 有关的类库，不论什么语言，什么平台都或多或少有 MVC 的影子。但是经过这么多年的发展，MVC 这个设计模式已经由最初 smalltalk 中的样子发生了很多变化，除了数目让人眼花缭乱外，很多 MVC 模型之间已经有了很大差异，不同的人说起 MVC 时，除了基本原理外，掺杂了很多平台或者语言相关的东西，经常会引起很多误解。PureMVC 是一个跨平台跨语言的 MVC 通用框架，这个框架基于 MVC 模式设计，清晰简单，了解这个框架会有助于重新认识 MVC 设计模式本身，或者能够提供一个基础让大多数人能够更清晰的交流基于 MVC 的设计方案。\n（查看图 1 的 清晰版本）\n",
+  "inLanguage" : "en",
+  "wordCount":  152 ,
+  "datePublished" : "2020-04-25T00:00:00",
+  "dateModified" : "2020-04-25T00:00:00",
+  "image" : "http:\/\/www.huangguowei.com\/",
+  "keywords" : [ "puremvc, 设计模式" ],
+  "mainEntityOfPage" : "http:\/\/www.huangguowei.com\/post\/tech\/puremvc\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/www.huangguowei.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/www.huangguowei.com\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="PureMVC学习" />
+<meta property="og:description" content="MVC 是一个非常常见的设计模式，被广泛运用于各种和用户交互的软件中，像 java Swing 类库和 SWT、J2EE 中的 JSP、wxWidgets、QT 和 Gnome 等。可以很不夸张的说，几乎所有和 UI 有关的类库，不论什么语言，什么平台都或多或少有 MVC 的影子。但是经过这么多年的发展，MVC 这个设计模式已经由最初 smalltalk 中的样子发生了很多变化，除了数目让人眼花缭乱外，很多 MVC 模型之间已经有了很大差异，不同的人说起 MVC 时，除了基本原理外，掺杂了很多平台或者语言相关的东西，经常会引起很多误解。PureMVC 是一个跨平台跨语言的 MVC 通用框架，这个框架基于 MVC 模式设计，清晰简单，了解这个框架会有助于重新认识 MVC 设计模式本身，或者能够提供一个基础让大多数人能够更清晰的交流基于 MVC 的设计方案。
+
+（查看图 1 的 清晰版本）">
+<meta property="og:url" content="http://www.huangguowei.com/post/tech/puremvc/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Jay~" />
+
+  <meta name="twitter:title" content="PureMVC学习" />
+  <meta name="twitter:description" content="MVC 是一个非常常见的设计模式，被广泛运用于各种和用户交互的软件中，像 java Swing 类库和 SWT、J2EE 中的 JSP、wxWidgets、QT 和 Gnome 等。可以很不夸张的说，几乎所有和 UI 有关的类库，不论什么语言，什么平台都或多或少有 MVC 的影子。但是经过这么多年的发展，MVC 这个设计模式已经由最初 smalltalk 中的样子发生了很多变化，除了数目让人眼花缭 …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.69.2" />
+  <link rel="alternate" href="http://www.huangguowei.com/index.xml" type="application/rss+xml" title="Jay~"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="http://www.huangguowei.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="http://www.huangguowei.com/css/syntax.css" /><link rel="stylesheet" href="http://www.huangguowei.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.huangguowei.com/">Jay~</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="主页" href="/">主页</a>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">博客</a>
+              <div class="navlinks-children">
+                
+                  <a href="/post/tech/puremvc">PureMVC</a>
+                
+              </div>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>PureMVC学习</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 25, 2020
+  
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>MVC 是一个非常常见的设计模式，被广泛运用于各种和用户交互的软件中，像 java Swing 类库和 SWT、J2EE 中的 JSP、wxWidgets、QT 和 Gnome 等。可以很不夸张的说，几乎所有和 UI 有关的类库，不论什么语言，什么平台都或多或少有 MVC 的影子。但是经过这么多年的发展，MVC 这个设计模式已经由最初 smalltalk 中的样子发生了很多变化，除了数目让人眼花缭乱外，很多 MVC 模型之间已经有了很大差异，不同的人说起 MVC 时，除了基本原理外，掺杂了很多平台或者语言相关的东西，经常会引起很多误解。PureMVC 是一个跨平台跨语言的 MVC 通用框架，这个框架基于 MVC 模式设计，清晰简单，了解这个框架会有助于重新认识 MVC 设计模式本身，或者能够提供一个基础让大多数人能够更清晰的交流基于 MVC 的设计方案。</p>
+<p><img src="/post/tech/puremvc.png" alt="图1. MVC"></p>
+<p>（查看图 1 的 <a href="https://www.ibm.com/developerworks/cn/java/j-lo-puremvc/origin_image001.jpg">清晰版本</a>）</p>
+<h3 id="传统mvc的痛点">传统MVC的痛点</h3>
+<p><strong>Controller</strong>：控制器，包含了项目的业务逻辑。但是也是被大家吐槽最多的一个，原因就是很多人，或者说大多数人，习惯于什么都往Controller里写，最后一个Controller超过1000行代码是司空见惯的事。所以关于传统MVC的第一个痛点就是，Controller过于臃肿。</p>
+<p><strong>Model</strong>：模型，包含了项目的数据模型。MVC定义之初，Model是核心，旨在使得同一个Model可以被复用到多个项目或者被复用到同一个项目的不同模块之中。但是在实际项目中，Model还承载着纯Model层内部的运算的工作，但是运算部分会项目的不同而有所区别，因此与项目的适配反而成为了Model可复用的枷锁。所以关于传统MVC的第二个痛点就是，Model变得不可复用。</p>
+<p><strong>View</strong>：视图，包含了项目所有的UI组件。视图本身没有什么好被大家诟病的，但是由于MVC中对于View和Controller界限的模糊界定造成了使用者在写代码的时候会觉得这部分代码放在View或者Controller里都可以的情况。例如事件的处理，组件的组合等。所以关于传统MVC的第三个痛点就是，View概念的模糊。</p>
+<h3 id="puremvc">PureMVC</h3>
+<p>PureMVC 是在基于模型、视图和控制器 MVC 模式建立的一个轻量级的应用框架，这是一个开源框架，它最初是被用于 ActionScript 3 语言使用的 Adobe Flex、Flash 和 AIR 之上，现在已经移植到几乎所有主要的软件平台之上。</p>
+<p>PureMVC 框架有两个分支版本：标准和多核。标准版提供了一种简单的编码分离的方法，按照基本的 MVC 概念设计而成。多核版本支持模块化编程，允许多个 PureMVC 应用运行在一起。在 MVC 模式中，应用程序被分为低耦合的三层：Model、View 和 Controller。PureMVC 在此基础上有所扩充，通过模块化设计，致力于进一步降低模块间耦合性，创建了一个易于扩展限制很小的通用框架，图一是 PureMVC 的设计图。</p>
+<p>在 PureMVC 实现的经典 MVC 元设计模式中，Model、View 和 Controller 分别由一个单例类来管理，合称为核心层或核心角色。 另外，在 PureMVC 中还提供了一个单例类 —— Façade，主要作用是作为与核心层通信的唯一接口，简化开发复杂度。</p>
+<p>除了基本的对象结构以外，为了解耦合，PureMVC 框架中引入了事件机制，这是个非常简单观察者设计模式，所有的事件都是一个 Notification，不同对象之间通过 Notification 来同步操作和交换信息。例如如果想更新界面中某个 Mediator，首先我们定义 Notification 用于此目的，然后注册 Mediator 监听该 Notification，然后就可以在程序中任何地方生成一个 Notification，通过事件机制，Mediator 就会接收到 Notification，然后更新需要的部分。整个过程 Mediator 只和 Notification 有关，没有其他依赖，有效的降低了对象之间的依赖程度。</p>
+<p>从上图中可以看出，除了这几个主要对象以外，框架还有如下类 Proxy、Mediator 和 Command，以下简单介绍一下他们的作用。</p>
+<h4 id="model与proxy">Model与Proxy</h4>
+<p>Proxy（模式），提供了一个一个包装器或一个中介被客户端调用，从而达到去访问在场景背后的真实对象。Proxy模式可以方便的将操作转给真实对象，或者提供额外的逻辑。</p>
+<p>在PureMVC中，Model保存了对Proxy对象的引用，Proxy去操作具体的数据模型（Data Object）。也就是说，Proxy管理Data Object以及对Data Object的访问。</p>
+<h4 id="view与mediator">View与Mediator</h4>
+<p>Mediator（模式），定义了一种封装对象之间交互的中介。这种设计模式被认为是行为模式因为它可以改变模式的运行行为。</p>
+<p>正如定义里所说，PureMVC中，View只关心UI，具体的对对象的操作由Mediator来管理，包括添加事件监听，发送或接受Notification，改变组件状态等。这也解决了视图与视图控制逻辑的分离。</p>
+<h4 id="controller与command">Controller与Command</h4>
+<p>Command（模式），是一种行为设计模式，这种模式下所有动作或者行为所需信息被封装到一个对象之内。Command模式解耦了发送者与接收者之间的联系。
+在PureMVC中，Controller保存了所有Command的映射。Command是无状态且惰性的，只有在需要的时候才被创建。</p>
+<h4 id="facade">Facade</h4>
+<p>与传统MVC模式不用的是，PureMVC中对于Model，View，Controller的调用是基于Facade模式的。
+Facade模式，对应了GoF中的Facade模式，是一种将复杂且庞大的内部实现暴露为一个简单接口的设计模式，例如对大型类库的封装。</p>
+<p>在PureMVC中，Facade是与核心层（Model,View,Controller）进行通信的唯一接口，目的是简化开发复杂度。实际编码过程中，不需要手动实现这三类文件，Facade类在构造方法中已经包含了对这三类单例的构造。</p>
+<h4 id="puremvc各层之间的交互">PureMVC各层之间的交互</h4>
+<p>View层的Mediator可以和Model层的Proxy进行互相访问，但是PureMVC设计之初是希望只有View依赖于Model，反之不成立。也就是View可以知道Model层有什么，但是Model层不需要知道View的任何内容。Mediator访问数据可以直接通过Proxy来完成，但是如果要对Proxy具体的内容进行加工，必须要通过Controller的Command来完成，这有助于实现View和Model之间的松散耦合。</p>
+<p>如上文所说，Proxy最好不要直接调用Mediator来通知它请求完成，而是在异步取到数据之后，通过Notification来进行通知。Proxy只发送通知，不应该监听通知，因为Proxy属于Model层，不应该知道View层的状态变化。当然，Proxy应当对外提供数据变更的接口。</p>
+<p>Command的实例化与执行只能由Controller来做。作为控制逻辑的执行体，Command有权拿到Proxy和Mediator的对象，并进行值加工，最后会将结果通过Notification发送给其它Command或者Mediator。</p>
+<h4 id="业务逻辑-vs-域逻辑">业务逻辑 VS 域逻辑</h4>
+<p>你可能会遇到这个问题：某段逻辑到底是应当放在Proxy(Model)里，还是应该放在Command(Controller)里？
+其实这个问题可以引申为业务逻辑与域逻辑的区别。</p>
+<ul>
+<li>业务逻辑
+指的是那些需要协调Model与View的逻辑。</li>
+<li>域逻辑
+指的是仅仅是针对数据模型的操作，不论是对于客户端还是对于服务端，不论是同步的操作还是异步的操作。</li>
+</ul>
+<p>因此，业务逻辑理所当然应该放在Command里来完成，而域逻辑应当放在Proxy里完成。</p>
+<h3 id="总结">总结</h3>
+<p>PureMVC 框架作为一个成熟的通用框架，具有以下优点：</p>
+<ul>
+<li>轻量级的库，简洁适度的设计</li>
+<li>极大的降低耦合度</li>
+<li>大量的文档和成熟的应用范例</li>
+<li>平台语言无关</li>
+<li>减少复杂度，让熟悉 MVC 概念的设计人员之间沟通更容易</li>
+<li>代码简洁，简单易学</li>
+<li>不依赖任何第三方的库</li>
+</ul>
+<p>从上面的介绍中，我们可以看到，在一个项目中根据实际情况整合 PureMVC 框架，可以让可以使得和 UI（不限于 Swing）相关部分设计更简洁，并提供更多的可复用组件，增强需求和设计之间的沟通效果，有效提高项目的设计质量。</p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://www.ibm.com/developerworks/cn/java/j-lo-puremvc/index.html">IBM: 实战 PureMVC</a></p>
+<p><a href="https://www.jianshu.com/p/47deaced9eb3">PureMVC&ndash;一款多平台MVC框架</a></p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="http://www.huangguowei.com//tags/puremvc/">puremvc</a>&nbsp;
+            
+              <a href="http://www.huangguowei.com//tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="http://www.huangguowei.com/">Jay~</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.69.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="http://www.huangguowei.com/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://www.huangguowei.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
